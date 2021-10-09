@@ -16,6 +16,6 @@ def process_workbook(filename):
 
     chart = BarChart() # Creates an instance of the BarChart class
     chart.add_data(values) # Feeds the values from 'values' to the chart
-    sheet.add_chart(chart, 'e2') # Adds the 'chart' variable to the spreadsheet with the upperleft corner at 'e2'
+    sheet.add_chart(chart, 'e2') # Adds the 'chart' variable to the spreadsheet with the upper left corner at 'e2'
 
     wb.save('transactions2.xlsx') # Saves the changes to a new spreadsheet to avoid overriding the original file as a failsafe in case bugs exist
