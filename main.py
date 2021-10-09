@@ -1,4 +1,5 @@
 import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
 
 wb = xl.load_workbook('transaction.xlsx') # Creates a variable 'wb' and stores the target workbook inside
 sheet = wb['Sheet1'] # Acesses the specific sheet that contains the targeted data
@@ -9,5 +10,6 @@ for row in range(2, sheet.max_row + 1): # Loops through rows 2 to 4 inclusive
     corrected_price_cell = sheet.cell(row, 4) # Creates a variable 'corrected_price_cell' and sets it as a cell in a new column to store the corrected prices
     corrected_price_cell.value = corrected_price # Sets the value of 'corrected_price_cell' to the corrected_price variable
     
+values = Reference(sheet, min_row= 2, max_row= sheet.max_row, min_col= 4, max_col= 4) # Stores the values of the 4th column inside a variable 'values'
     
 wb.save('transactions2.xlsx') # Saves the changes to a new spreadsheet to avoid overriding the original file as a failsafe in case bugs exist
