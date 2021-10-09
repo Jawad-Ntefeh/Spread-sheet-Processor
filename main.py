@@ -11,5 +11,9 @@ for row in range(2, sheet.max_row + 1): # Loops through rows 2 to 4 inclusive
     corrected_price_cell.value = corrected_price # Sets the value of 'corrected_price_cell' to the corrected_price variable
     
 values = Reference(sheet, min_row= 2, max_row= sheet.max_row, min_col= 4, max_col= 4) # Stores the values of the 4th column inside a variable 'values'
+   
+chart = BarChart() # Creates an instance of the BarChart class
+chart.add_data(values) # Feeds the values from 'values' to the chart
+sheet.add_chart(chart, 'e2') # Adds the 'chart' variable to the spreadsheet with the upperleft corner at 'e2'
     
 wb.save('transactions2.xlsx') # Saves the changes to a new spreadsheet to avoid overriding the original file as a failsafe in case bugs exist
